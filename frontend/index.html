@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator JSON</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 30px;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+        }
+
+        .left, .right {
+            flex: 1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+            resize: vertical;
+        }
+
+        #formatted-json {
+            background-color: #f4f4f4;
+            padding: 15px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            min-height: 300px;
+        }
+    </style>
+</head>
+<body>
+<h1>Generator JSON</h1>
+<div class="container">
+    <div class="left">
+        <form id="generator-form">
+            <div class="form-group">
+                <label for="filename">File name:</label>
+                <input type="text" id="filename" name="filename" required>
+            </div>
+
+            <div class="form-group">
+                <label for="count">Number of records:</label>
+                <input type="number" id="count" name="count" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label><input type="checkbox" id="randomize" name="randomize"> Generate random JSON data base</label>
+            </div>
+
+            <div class="form-group">
+                <label for="baseJson">JSON structure (base):</label>
+                <textarea id="baseJson" name="baseJson" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="button" id="formatJsonBtn">Format JSON</button>
+                <button type="submit">Generate and download</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="right">
+        <h3>Preview of formatted JSON</h3>
+        <div id="formatted-json">(JSON will appear here after clicking "Format JSON")</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
