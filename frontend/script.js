@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const count = parseInt(form.count.value.trim());
         const baseJsonText = baseJsonTextarea.value.trim();
 
-        // Walidacja pól
         if (!filename || isNaN(count) || count < 1 || !baseJsonText) {
             alert("Complete all fields correctly.");
             return;
